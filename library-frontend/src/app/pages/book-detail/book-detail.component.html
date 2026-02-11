@@ -1,0 +1,23 @@
+﻿<p-toast></p-toast>
+<div *ngIf="book" class="detail-shell">
+  <div class="poster">{{ book.title }}</div>
+  <div class="detail-content">
+    <h2>{{ book.title }}</h2>
+    <p class="subtitle">{{ book.author?.firstName }} {{ book.author?.lastName }}</p>
+    <p>{{ book.description }}</p>
+    <div class="meta">
+      <span>ISBN: {{ book.isbn }}</span>
+      <span>Éditeur: {{ book.publisher || '-' }}</span>
+      <span>Année: {{ book.publicationYear || '-' }}</span>
+    </div>
+    <div class="badges">
+      <p-tag severity="info" [value]="book.category?.name || 'Sans catégorie'"></p-tag>
+      <p-tag [severity]="book.availableCopies > 0 ? 'success' : 'danger'" [value]="book.availableCopies + ' dispo'"></p-tag>
+    </div>
+    <div class="actions">
+      <button pButton class="p-button-danger" (click)="borrow()" [disabled]="book.availableCopies < 1">Emprunter</button>
+      <button pButton class="p-button-outlined" (click)="reserve()">Réserver</button>
+      <a class="p-button p-button-text" routerLink="/books">Retour</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+﻿<p-toast></p-toast>
+<div class="auth-shell">
+  <p-card header="Créer un compte" class="auth-card">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="field">
+        <label>Prénom</label>
+        <input pInputText type="text" formControlName="firstName" />
+      </div>
+      <div class="field">
+        <label>Nom</label>
+        <input pInputText type="text" formControlName="lastName" />
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input pInputText type="email" formControlName="email" />
+      </div>
+      <div class="field">
+        <label>Mot de passe</label>
+        <p-password formControlName="password" [feedback]="true" toggleMask="true"></p-password>
+      </div>
+      <div class="field">
+        <label>Numéro d'adhésion</label>
+        <input pInputText type="text" formControlName="membershipNumber" />
+      </div>
+      <div class="field">
+        <label>Type d'adhésion</label>
+        <p-dropdown [options]="types" formControlName="membershipType"></p-dropdown>
+      </div>
+      <button pButton type="submit" class="p-button-danger" [disabled]="loading">Créer le compte</button>
+      <p class="auth-link">
+        Déjà inscrit ? <a routerLink="/login">Se connecter</a>
+      </p>
+    </form>
+  </p-card>
+</div>

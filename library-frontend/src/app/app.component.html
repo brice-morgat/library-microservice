@@ -1,0 +1,22 @@
+﻿<div class="app-container">
+  <header class="app-header">
+    <div class="app-header-inner">
+      <div class="app-logo">LIBRARYFLIX</div>
+      <nav class="app-nav" *ngIf="authService.isLoggedIn()">
+        <a routerLink="/dashboard" routerLinkActive="active">Accueil</a>
+        <a routerLink="/books" routerLinkActive="active">Catalogue</a>
+        <a routerLink="/loans" routerLinkActive="active">Emprunts</a>
+        <a routerLink="/users" routerLinkActive="active" *ngIf="authService.hasRole('ADMIN')">Utilisateurs</a>
+      </nav>
+      <div class="app-actions" *ngIf="authService.isLoggedIn()">
+        <button class="p-button p-button-danger" (click)="logout()">Déconnexion</button>
+      </div>
+      <div class="app-actions" *ngIf="!authService.isLoggedIn()">
+        <a class="p-button p-button-danger" routerLink="/login">Connexion</a>
+      </div>
+    </div>
+  </header>
+  <main class="app-shell">
+    <router-outlet></router-outlet>
+  </main>
+</div>

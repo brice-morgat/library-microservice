@@ -1,0 +1,198 @@
+﻿:root {
+  --app-bg: #0b0c10;
+  --app-surface: #111218;
+  --app-surface-2: #161822;
+  --app-text: #f1f1f1;
+  --app-muted: #9aa0a6;
+  --app-accent: #e50914;
+  --app-accent-2: #b00710;
+  --app-border: #262a36;
+  --app-glow: rgba(229, 9, 20, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  background: radial-gradient(1200px 600px at 20% -10%, rgba(229, 9, 20, 0.25), transparent 60%),
+    linear-gradient(180deg, #0b0c10 0%, #0b0c10 60%, #0f1118 100%);
+  color: var(--app-text);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(11, 12, 16, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--app-border);
+}
+
+.app-header-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+}
+
+.app-logo {
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 1.25rem;
+  color: var(--app-accent);
+}
+
+.app-nav {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.app-nav a {
+  color: var(--app-muted);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.app-nav a.active,
+.app-nav a:hover {
+  color: var(--app-text);
+}
+
+.app-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.app-shell {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+}
+
+.card-surface {
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+.hero {
+  display: grid;
+  gap: 1.5rem;
+  padding: 2.5rem;
+  background: linear-gradient(135deg, rgba(229, 9, 20, 0.18), rgba(17, 18, 24, 0.9));
+  border-radius: 20px;
+  border: 1px solid rgba(229, 9, 20, 0.35);
+  box-shadow: 0 20px 40px rgba(229, 9, 20, 0.12);
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.hero-sub {
+  color: var(--app-muted);
+  max-width: 720px;
+}
+
+.netflix-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.p-card {
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: 16px;
+}
+
+.p-button.p-button-danger {
+  background: var(--app-accent);
+  border-color: var(--app-accent);
+}
+
+.p-button.p-button-danger:hover {
+  background: var(--app-accent-2);
+  border-color: var(--app-accent-2);
+}
+
+.p-datatable {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+  background: var(--app-surface-2);
+  color: var(--app-text);
+  border-color: var(--app-border);
+}
+
+.p-datatable .p-datatable-tbody > tr {
+  background: var(--app-surface);
+  color: var(--app-text);
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+  border-color: var(--app-border);
+}
+
+.p-inputtext, .p-dropdown, .p-multiselect, .p-password, .p-inputnumber {
+  background: var(--app-surface-2);
+  border: 1px solid var(--app-border);
+  color: var(--app-text);
+}
+
+.p-inputtext::placeholder {
+  color: var(--app-muted);
+}
+
+.p-dialog .p-dialog-header,
+.p-dialog .p-dialog-content {
+  background: var(--app-surface);
+  color: var(--app-text);
+}
+
+.p-tag {
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .app-header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .app-shell {
+    padding: 1.5rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+}

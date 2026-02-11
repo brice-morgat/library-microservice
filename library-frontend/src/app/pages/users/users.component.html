@@ -1,0 +1,89 @@
+﻿<p-toast></p-toast>
+<section class="page-header">
+  <div>
+    <h2>Utilisateurs</h2>
+    <p>Gestion des membres et employés.</p>
+  </div>
+  <button pButton class="p-button-danger" (click)="openCreate()">Nouvel utilisateur</button>
+</section>
+
+<p-table [value]="users" [loading]="loading" styleClass="p-datatable-striped">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Nom</th>
+      <th>Email</th>
+      <th>Adhésion</th>
+      <th>Rôles</th>
+      <th>Actions</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-user>
+    <tr>
+      <td>{{ user.firstName }} {{ user.lastName }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.membershipType }}</td>
+      <td>{{ user.roles?.join(', ') }}</td>
+      <td>
+        <button pButton class="p-button-text" icon="pi pi-list" (click)="showLoans(user)"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-dialog [(visible)]="dialogVisible" [modal]="true" [style]="{ width: '560px' }" header="Nouvel utilisateur">
+  <form [formGroup]="form" class="dialog-form">
+    <div class="field">
+      <label>Prénom</label>
+      <input pInputText formControlName="firstName" />
+    </div>
+    <div class="field">
+      <label>Nom</label>
+      <input pInputText formControlName="lastName" />
+    </div>
+    <div class="field">
+      <label>Email</label>
+      <input pInputText formControlName="email" />
+    </div>
+    <div class="field">
+      <label>Mot de passe</label>
+      <input pInputText type="password" formControlName="password" />
+    </div>
+    <div class="field">
+      <label>Numéro d'adhésion</label>
+      <input pInputText formControlName="membershipNumber" />
+    </div>
+    <div class="field">
+      <label>Type d'adhésion</label>
+      <p-dropdown [options]="types" formControlName="membershipType"></p-dropdown>
+    </div>
+    <div class="field">
+      <label>Rôles</label>
+      <p-multiSelect [options]="roles" formControlName="roles"></p-multiSelect>
+    </div>
+    <div class="dialog-actions">
+      <button pButton class="p-button-text" type="button" (click)="dialogVisible=false">Annuler</button>
+      <button pButton class="p-button-danger" type="button" (click)="save()">Enregistrer</button>
+    </div>
+  </form>
+</p-dialog>
+
+<p-dialog [(visible)]="loansVisible" [modal]="true" [style]="{ width: '640px' }" header="Emprunts de l'utilisateur">
+  <p-table [value]="selectedLoans" styleClass="p-datatable-striped">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>ID</th>
+        <th>Livre</th>
+        <th>Statut</th>
+        <th>Échéance</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-loan>
+      <tr>
+        <td>{{ loan.id }}</td>
+        <td>{{ loan.bookId }}</td>
+        <td>{{ loan.status }}</td>
+        <td>{{ loan.dueDate || '-' }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-dialog>

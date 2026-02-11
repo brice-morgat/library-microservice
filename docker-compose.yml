@@ -1,0 +1,96 @@
+﻿version: '3.8'
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: library
+      POSTGRES_PASSWORD: library
+      POSTGRES_DB: library
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  discovery-server:
+    build: ./discovery-server
+    ports:
+      - "8761:8761"
+
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "8080:8080"
+    environment:
+      - JWT_SECRET=CHANGE_ME_CHANGE_ME_CHANGE_ME_CHANGE_ME_CHANGE_ME_CHANGE_ME_CHANGE_ME
+      - EUREKA_HOST=discovery-server
+      - EUREKA_PORT=8761
+    depends_on:
+      - discovery-server
+      - user-service
+      - book-service
+      - loan-service
+
+  library-frontend:
+    build: ./library-frontend
+    ports:
+      - "4200:4200"
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - api-gateway
+
+  user-service:
+    build: ./user-service
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - DB_HOST=postgres
+      - DB_NAME=library
+      - DB_USER=library
+      - DB_PASSWORD=library
+      - JWT_SECRET=CHANGE_ME_CHANGE_ME_CHANGE_ME_CHANGE_ME_CHANGE_ME_CHANGE_ME_CHANGE_ME
+      - EUREKA_HOST=discovery-server
+      - EUREKA_PORT=8761
+    depends_on:
+      - postgres
+      - discovery-server
+
+  book-service:
+    build: ./book-service
+    ports:
+      - "8082:8082"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - DB_HOST=postgres
+      - DB_NAME=library
+      - DB_USER=library
+      - DB_PASSWORD=library
+      - JWT_SECRET=CHANGE_ME_CHANGE_ME_CHANGE_ME_CHANGE_ME_CHANGE_ME_CHANGE_ME_CHANGE_ME
+      - EUREKA_HOST=discovery-server
+      - EUREKA_PORT=8761
+    depends_on:
+      - postgres
+      - discovery-server
+
+  loan-service:
+    build: ./loan-service
+    ports:
+      - "8083:8083"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - DB_HOST=postgres
+      - DB_NAME=library
+      - DB_USER=library
+      - DB_PASSWORD=library
+      - JWT_SECRET=CHANGE_ME_CHANGE_ME_CHANGE_ME_CHANGE_ME_CHANGE_ME_CHANGE_ME_CHANGE_ME
+      - EUREKA_HOST=discovery-server
+      - EUREKA_PORT=8761
+    depends_on:
+      - postgres
+      - discovery-server
+      - book-service
+      - user-service
+
+volumes:
+  postgres_data:

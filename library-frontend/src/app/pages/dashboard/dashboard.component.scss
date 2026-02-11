@@ -1,0 +1,55 @@
+﻿.hero {
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.hero-stats {
+  display: grid;
+  gap: 1rem;
+}
+
+.stat-card {
+  background: rgba(17, 18, 24, 0.8);
+  border: 1px solid var(--app-border);
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-card strong {
+  font-size: 1.8rem;
+  color: var(--app-accent);
+}
+
+.section h2 {
+  margin: 0 0 1rem;
+}
+
+.poster {
+  height: 120px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(160deg, rgba(229, 9, 20, 0.6), rgba(0,0,0,0.8));
+  color: #fff;
+  font-weight: 600;
+}
+
+.card-body h3 {
+  margin: 0.5rem 0 0.25rem;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}

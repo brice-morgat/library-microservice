@@ -1,0 +1,40 @@
+﻿<section class="hero">
+  <div>
+    <div class="hero-title">Bibliothèque en streaming d'expérience.</div>
+    <p class="hero-sub">Pilotez vos membres, emprunts et catalogues comme un studio. Tout passe par la gateway, sécurisé par JWT.</p>
+    <div class="hero-actions">
+      <button pButton class="p-button-danger" routerLink="/books">Explorer le catalogue</button>
+      <button pButton class="p-button-outlined" routerLink="/loans">Gérer les emprunts</button>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-card">
+      <span>Livres</span>
+      <strong>{{ counts.books }}</strong>
+    </div>
+    <div class="stat-card">
+      <span>Membres</span>
+      <strong>{{ counts.users }}</strong>
+    </div>
+    <div class="stat-card">
+      <span>Emprunts</span>
+      <strong>{{ counts.loans }}</strong>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>À la une</h2>
+  <div class="netflix-grid">
+    <p-card *ngFor="let book of featuredBooks">
+      <ng-template pTemplate="header">
+        <div class="poster">{{ book.title }}</div>
+      </ng-template>
+      <div class="card-body">
+        <h3>{{ book.title }}</h3>
+        <p>{{ book.author?.firstName }} {{ book.author?.lastName }}</p>
+        <small>{{ book.publisher }} · {{ book.publicationYear }}</small>
+      </div>
+    </p-card>
+  </div>
+</section>

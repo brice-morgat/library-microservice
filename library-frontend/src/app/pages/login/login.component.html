@@ -1,0 +1,19 @@
+﻿<p-toast></p-toast>
+<div class="auth-shell">
+  <p-card header="Connexion" class="auth-card">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="field">
+        <label>Email</label>
+        <input pInputText type="email" formControlName="email" placeholder="you@library.com" />
+      </div>
+      <div class="field">
+        <label>Mot de passe</label>
+        <p-password formControlName="password" [feedback]="false" toggleMask="true"></p-password>
+      </div>
+      <button pButton type="submit" class="p-button-danger" [disabled]="loading">Se connecter</button>
+      <p class="auth-link">
+        Pas de compte ? <a routerLink="/register">Créer un compte</a>
+      </p>
+    </form>
+  </p-card>
+</div>
