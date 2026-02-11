@@ -1,4 +1,4 @@
-﻿package com.example.library.loanservice.dto;
+package com.example.library.loanservice.dto;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;

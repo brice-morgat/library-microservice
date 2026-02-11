@@ -1,4 +1,4 @@
-﻿import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators, FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
@@ -114,6 +114,11 @@ export class BooksComponent implements OnInit {
   save(): void {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
+      this.message.add({
+        severity: 'warn',
+        summary: 'Formulaire incomplet',
+        detail: 'Renseignez les champs obligatoires avant de sauvegarder.'
+      });
       return;
     }
     const payload = this.form.getRawValue();

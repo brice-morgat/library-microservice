@@ -1,4 +1,4 @@
-﻿package com.example.library.userservice.config;
+package com.example.library.userservice.config;
 
 import com.example.library.userservice.model.Role;
 import com.example.library.userservice.model.RoleName;

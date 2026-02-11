@@ -1,4 +1,4 @@
-﻿package com.example.library.loanservice.exception;
+package com.example.library.loanservice.exception;
 
 /**
  * Exception levee pour une requete invalide.

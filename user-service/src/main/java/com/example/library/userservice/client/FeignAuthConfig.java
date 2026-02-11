@@ -1,4 +1,4 @@
-﻿package com.example.library.userservice.client;
+package com.example.library.userservice.client;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.context.annotation.Bean;

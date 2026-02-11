@@ -1,4 +1,4 @@
-﻿server:
+server:
   port: 8080
 
 spring:
@@ -6,51 +6,63 @@ spring:
     name: api-gateway
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
-      routes:
-        - id: user-service
-          uri: lb://user-service
-          predicates:
-            - Path=/api/users/**,/api/auth/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: userServiceCircuitBreaker
-                fallbackUri: forward:/fallback/users
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
+              lower-case-service-id: true
+          routes:
+            - id: user-service-auth
+              uri: lb://USER-SERVICE
+              predicates:
+                - Path=/api/auth/**
+              filters:
+                - name: CircuitBreaker
+                  args:
+                    name: userServiceCircuitBreaker
+                    fallbackUri: forward:/fallback/users
 
-        - id: book-service
-          uri: lb://book-service
-          predicates:
-            - Path=/api/books/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: bookServiceCircuitBreaker
-                fallbackUri: forward:/fallback/books
+            - id: user-service-users
+              uri: lb://USER-SERVICE
+              predicates:
+                - Path=/api/users/**
+              filters:
+                - name: CircuitBreaker
+                  args:
+                    name: userServiceCircuitBreaker
+                    fallbackUri: forward:/fallback/users
 
-        - id: loan-service
-          uri: lb://loan-service
-          predicates:
-            - Path=/api/loans/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: loanServiceCircuitBreaker
-                fallbackUri: forward:/fallback/loans
+            - id: book-service
+              uri: lb://BOOK-SERVICE
+              predicates:
+                - Path=/api/books/**
+              filters:
+                - name: CircuitBreaker
+                  args:
+                    name: bookServiceCircuitBreaker
+                    fallbackUri: forward:/fallback/books
 
-      default-filters:
-        - name: Retry
-          args:
-            retries: 2
-            statuses: BAD_GATEWAY,SERVICE_UNAVAILABLE
-            methods: GET
-            backoff:
-              firstBackoff: 100ms
-              maxBackoff: 500ms
-              factor: 2
+            - id: loan-service
+              uri: lb://LOAN-SERVICE
+              predicates:
+                - Path=/api/loans/**
+              filters:
+                - name: CircuitBreaker
+                  args:
+                    name: loanServiceCircuitBreaker
+                    fallbackUri: forward:/fallback/loans
+
+          default-filters:
+            - name: Retry
+              args:
+                retries: 2
+                statuses: BAD_GATEWAY,SERVICE_UNAVAILABLE
+                methods: GET
+                backoff:
+                  firstBackoff: 100ms
+                  maxBackoff: 500ms
+                  factor: 2
 
 resilience4j:
   circuitbreaker:

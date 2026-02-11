@@ -1,4 +1,4 @@
-﻿package com.example.library.loanservice.client;
+package com.example.library.loanservice.client;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.cloud.openfeign.EnableFeignClients;

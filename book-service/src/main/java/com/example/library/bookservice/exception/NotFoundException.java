@@ -1,4 +1,4 @@
-﻿package com.example.library.bookservice.exception;
+package com.example.library.bookservice.exception;
 
 /**
  * Exception levee quand une ressource n'est pas trouvee.

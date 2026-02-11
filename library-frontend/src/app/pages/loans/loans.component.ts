@@ -1,4 +1,4 @@
-﻿import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { TableModule } from 'primeng/table';
@@ -9,6 +9,8 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { LoanService } from '../../services/loan.service';
 import { Loan } from '../../models/loan.model';
+
+type TagSeverity = 'success' | 'secondary' | 'info' | 'warning' | 'danger' | 'contrast';
 
 @Component({
   selector: 'app-loans',
@@ -80,7 +82,7 @@ export class LoansComponent implements OnInit {
     });
   }
 
-  statusSeverity(status: string): string {
+  statusSeverity(status: string): TagSeverity {
     switch (status) {
       case 'ACTIVE':
         return 'success';

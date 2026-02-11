@@ -1,4 +1,4 @@
-﻿package com.example.library.discovery;
+package com.example.library.discovery;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

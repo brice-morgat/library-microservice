@@ -1,4 +1,4 @@
-﻿package com.example.library.apigateway.security;
+package com.example.library.apigateway.security;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

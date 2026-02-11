@@ -1,4 +1,4 @@
-﻿package com.example.library.bookservice.security;
+package com.example.library.bookservice.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

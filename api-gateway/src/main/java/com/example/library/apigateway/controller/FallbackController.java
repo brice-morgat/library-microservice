@@ -1,7 +1,6 @@
-﻿package com.example.library.apigateway.controller;
+package com.example.library.apigateway.controller;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,7 +20,7 @@ public class FallbackController {
      *
      * @return réponse HTTP 503 avec un message explicite.
      */
-    @GetMapping("/users")
+    @RequestMapping("/users")
     public ResponseEntity<Map<String, String>> usersFallback() {
         return ResponseEntity.status(503).body(Map.of("message", "User service unavailable"));
     }
@@ -31,7 +30,7 @@ public class FallbackController {
      *
      * @return réponse HTTP 503 avec un message explicite.
      */
-    @GetMapping("/books")
+    @RequestMapping("/books")
     public ResponseEntity<Map<String, String>> booksFallback() {
         return ResponseEntity.status(503).body(Map.of("message", "Book service unavailable"));
     }
@@ -41,7 +40,7 @@ public class FallbackController {
      *
      * @return réponse HTTP 503 avec un message explicite.
      */
-    @GetMapping("/loans")
+    @RequestMapping("/loans")
     public ResponseEntity<Map<String, String>> loansFallback() {
         return ResponseEntity.status(503).body(Map.of("message", "Loan service unavailable"));
     }

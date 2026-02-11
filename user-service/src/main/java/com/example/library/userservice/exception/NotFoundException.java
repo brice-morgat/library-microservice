@@ -1,4 +1,4 @@
-﻿package com.example.library.userservice.exception;
+package com.example.library.userservice.exception;
 
 /**
  * Exception levee quand une ressource n'est pas trouvee.

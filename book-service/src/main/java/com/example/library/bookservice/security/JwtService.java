@@ -1,4 +1,4 @@
-﻿package com.example.library.bookservice.security;
+package com.example.library.bookservice.security;
 
 import com.example.library.bookservice.model.RoleName;
 import io.jsonwebtoken.Claims;

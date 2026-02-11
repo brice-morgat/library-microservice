@@ -1,4 +1,4 @@
-﻿package com.example.library.userservice.exception;
+package com.example.library.userservice.exception;
 
 import lombok.Builder;
 import lombok.Data;

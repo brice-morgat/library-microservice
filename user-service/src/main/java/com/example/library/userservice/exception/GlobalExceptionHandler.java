@@ -1,4 +1,4 @@
-﻿package com.example.library.userservice.exception;
+package com.example.library.userservice.exception;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;

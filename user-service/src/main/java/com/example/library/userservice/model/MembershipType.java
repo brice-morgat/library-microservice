@@ -1,4 +1,4 @@
-﻿package com.example.library.userservice.model;
+package com.example.library.userservice.model;
 
 public enum MembershipType {
     STANDARD,

@@ -1,4 +1,4 @@
-﻿package com.example.library.apigateway.security;
+package com.example.library.apigateway.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

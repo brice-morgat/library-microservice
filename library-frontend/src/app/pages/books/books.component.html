@@ -1,4 +1,4 @@
-﻿<p-toast></p-toast>
+<p-toast></p-toast>
 <section class="page-header">
   <div>
     <h2>Catalogue</h2>
@@ -39,7 +39,7 @@
 </p-table>
 
 <p-dialog [(visible)]="dialogVisible" [modal]="true" [style]="{ width: '720px' }" header="Livre">
-  <form [formGroup]="form" class="dialog-form">
+  <form [formGroup]="form" class="dialog-form" (ngSubmit)="save()">
     <div class="grid">
       <div class="field">
         <label>ISBN</label>
@@ -92,7 +92,7 @@
     </div>
     <div class="dialog-actions">
       <button pButton class="p-button-text" type="button" (click)="dialogVisible=false">Annuler</button>
-      <button pButton class="p-button-danger" type="button" (click)="save()">Enregistrer</button>
+      <button pButton class="p-button-danger" type="submit">Enregistrer</button>
     </div>
   </form>
 </p-dialog>

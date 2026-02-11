@@ -1,4 +1,4 @@
-﻿package com.example.library.loanservice.client;
+package com.example.library.loanservice.client;
 
 import com.example.library.loanservice.dto.UserDto;
 import org.springframework.cloud.openfeign.FeignClient;

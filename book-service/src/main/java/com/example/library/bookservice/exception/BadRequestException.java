@@ -1,4 +1,4 @@
-﻿package com.example.library.bookservice.exception;
+package com.example.library.bookservice.exception;
 
 /**
  * Exception levee pour une requete invalide.

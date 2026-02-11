@@ -1,4 +1,4 @@
-﻿package com.example.library.userservice.dto;
+package com.example.library.userservice.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;

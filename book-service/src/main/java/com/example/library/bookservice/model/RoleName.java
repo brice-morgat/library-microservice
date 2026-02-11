@@ -1,4 +1,4 @@
-﻿package com.example.library.bookservice.model;
+package com.example.library.bookservice.model;
 
 public enum RoleName {
     ADMIN,

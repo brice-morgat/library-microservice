@@ -1,4 +1,4 @@
-﻿# TP Complet : Système de Gestion de Bibliothèque
+# TP Complet : Système de Gestion de Bibliothèque
 
 ## Vue d'ensemble
 

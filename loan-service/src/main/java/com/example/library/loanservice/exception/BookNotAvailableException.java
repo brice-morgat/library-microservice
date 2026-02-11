@@ -1,4 +1,4 @@
-﻿package com.example.library.loanservice.exception;
+package com.example.library.loanservice.exception;
 
 /**
  * Exception levee quand un livre n'est pas disponible.
